@@ -5,3 +5,10 @@ export const fetchProductList = async() => {
 
     return data;
 }
+
+
+export const fetchProduct = async(product_id) => {
+    const {data} = await axios.get(`http://localhost:4000/product/${product_id}`)
+
+    return data;
+}

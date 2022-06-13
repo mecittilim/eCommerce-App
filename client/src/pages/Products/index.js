@@ -11,7 +11,6 @@ function Products() {
  
    if (error) return 'An error has occurred: ' + error.message
 
-   console.log(data[0].products);
 
     return (
         <div>

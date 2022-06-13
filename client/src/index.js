@@ -7,8 +7,18 @@ import reportWebVitals from './reportWebVitals';
 
 import { ChakraProvider } from '@chakra-ui/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+  //sadece sayfa yenilendiğinde fetch işlemi yapacak. 
+  //root değiştiğinde ve ya başka bir tab e gidildiğinde refetch yapılmaz.
+  defaultOptions: {
+    queries: {
+      refetchOnMount: false,
+      refetchOnWindowFocus: false
+    }
+  }
+});
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -18,6 +28,7 @@ root.render(
       <ChakraProvider>
         <App />
       </ChakraProvider>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </React.StrictMode>
 );

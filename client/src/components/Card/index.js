@@ -6,7 +6,7 @@ import React from 'react'
 function Card({ item }) {
   return (
     <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p="3">
-      <Link to="#/">
+      <Link to={`/product/${item.id}`}>
         <Image src={item.images[0]} alt='product' style={{ width: "20vw", height: "30vh" }} />
 
         <Box p="6">
